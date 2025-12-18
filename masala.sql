@@ -22,7 +22,7 @@ inner join orders o on (o.order_id=od.order_id)
 where  to_char(o.order_date,'YYYY-MM')='1997-07' and p.category_id=3 and p.unit_price=(select min(p2.unit_price)from products p2
 inner join order_details od2 on (od2.product_id=p2.product_id)
 inner join orders o2 on (o2.order_id=od2.order_id)
-where to_char(o.order_date,'YYYY-MM')='1997-07' and p.category_id=3)
+where to_char(o2.order_date,'YYYY-MM')='1997-07' and p2.category_id=3)
 group by to_char(o.order_date,'YYYY-MM') , p.category_id ,s.supplier_id
 
 -- 3-masala
